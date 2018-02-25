@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Wicked Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      text-align: center;
+      background-color: #36393d;
+    }
+    canvas {
+      image-rendering: pixelated;
+      transform: scale(1.275);
+    }
+    #gb {
+      width: 400px;
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #gb > img {
+      width: 100%;
+      padding: 10px;
+    }
+    #screen {
+      position: absolute;
+      left: 50%;
+      top: 90px;
+      transform: translate(-50%);
+    }
+    #enter {
+      height: 100px;
+      width: 200px;
+      background-color: #36393d; 
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      border-radius: 10px;
+      border: 3px solid white;
+      line-height: 100px;
+      color: white;
+      font-family: sans-serif;
+      font-size: 20px;
+    }
+    #dPad {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      bottom: 10px;
+      left: 10px;
+    }
+    #up, #left, #right {
+      width: 50%;
+      height: 50%;
+      background-color: #36393d;
+      position: absolute;
+      border-radius: 10px;
+      border: 3px solid white;
+    }
+    #up {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    #up:before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -75%);
+    }
+    #left {
+      bottom: 0;
+      left: 0;
+    }
+    #left:before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid white;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      top: 50%;
+      left: 50%;
+      transform: translate(-75%, -50%);
+    }
+    #right {
+      bottom: 0;
+      right: 0;
+    }
+    #right:before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 10px solid white;
+      border-right: 10px solid transparent;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      top: 50%;
+      left: 50%;
+      transform: translate(-25%, -50%);
+    }
+    @media screen and (max-width: 400px) {
+      #gb {
+        top: auto;
+      }
+      #gb > img {
+        display: none;
+      }
+      canvas {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) scale(1.5);
+      }
+      #dPad {
+        width: 100px;
+        height: 100px;
+      }
+      #enter {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="gb">
+    <div id="screen"></div>
+    <img src="./assets/gb.png">
+  </div>
+  <div id="dPad">
+    <div id="up"></div>
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+  <div id="enter">Enter</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js"></script>
+  <script src="js/boot.js"></script>
+  <script src="js/load.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/level1.js"></script>
+  <script src="js/gameOver.js"></script>
+  <script src="js/game.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+</body>
+</html>
